@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Employee } from '../shared/employee';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -25,16 +24,16 @@ export class RestApiService {
   };
 
   // HttpClient API get() method => Fetch employees list
-  getCountrys(): Observable<Employee> {
+  getCountrys(): Observable<any> {
     return this.http
-      .get<Employee>(this.apiURL + '/all')
+      .get<any>(this.apiURL + '/all')
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // HttpClient API get() method => Fetch employee
-  getCountry(name: any): Observable<Employee> {
+  // HttpClient API get() method => Fetch any
+  getCountry(name: any): Observable<any> {
     return this.http
-      .get<Employee>(this.apiURL + '/name/' + name)
+      .get<any>(this.apiURL + '/name/' + name)
       .pipe(retry(1), catchError(this.handleError));
   }
 

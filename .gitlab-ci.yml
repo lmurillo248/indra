@@ -24,3 +24,11 @@ staging:      # This job runs in the deploy stage.
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
     - main
+
+production:      # This job runs in the deploy stage.
+  type: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  image: ruby:latest
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+  only:
+    - main

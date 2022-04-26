@@ -1,0 +1,20 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+    
+    <h3 class="mb-3 text-center">Detalle del pais</h3>
+
+    <div class="form-group">
+      <label for="">Nombre del pais</label>
+      <input type="text" [disabled]="true" [(ngModel)]="CountryData?.name.common" class="form-control" placeholder="Nombre">
+    </div>
+    <div class="form-group">
+      <label for="">Capital</label>
+      <input type="text" [disabled]="true" [(ngModel)]="CountryData?.capital[0]" class="form-control" placeholder="Phone">
+    </div> 
+    <div class="form-group">
+      <label for="">Continente</label>
+      <input type="text" [disabled]="true" [(ngModel)]="CountryData?.continents[0]" class="form-control" placeholder="Moneda">
+    </div>
+      
+  </div>
+</div>

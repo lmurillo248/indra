@@ -1,0 +1,17 @@
+<div class="container custom-container-2">
+  <div *ngIf="Countrys.length !== 0">
+    <h3 class="mb-3 text-center">Lista de paises</h3>
+    <div class="col-md-6 offset-md-3">
+        <input class="form-control" type="text" placeholder="Buscar Pais" [(ngModel)]="filtro" name="" id="">
+    </div>
+    <div class="col-md-12 d-flex flex-wrap">  
+    <div *ngFor="let country of Countrys | searchFilter:filtro" class="card mt-1">
+        <img src="{{country.flags.png}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ country.name.common }}</h5>
+          <a routerLink="country-edit/{{ country.name.common }}" class="btn btn-primary">Ver detalle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
